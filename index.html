@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Cake-ma — Layer cakes d'exception</title>
+  <meta name="description" content="Layer cakes sur mesure pour mariages, anniversaires et grands événements, à partir de 15 personnes.">
+  <meta name="theme-color" content="#F4EDE1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-flavor="framboise">
+
+  <!-- Barre du haut : logo + « étage » courant (le scroll = on monte le gâteau) -->
+  <header class="topbar">
+    <a class="logo" href="#top">Cake<span>·</span>ma</a>
+    <p class="floor" aria-live="polite"><span id="floor-num">01</span> / 05 · <span id="floor-name">Le plan</span></p>
+  </header>
+
+  <main id="top">
+
+    <!-- ÉTAGE 01 — Hero / turntable -->
+    <section class="hero" data-floor="01" data-floor-name="Le plan">
+      <p class="tag">Plan n°01 — Layer cake · à partir de 15 pers.</p>
+      <h1>Des gâteaux qui se <em>construisent</em> comme des architectures.</h1>
+
+      <figure class="turntable" id="turntable">
+        <canvas class="turntable-canvas" hidden></canvas>
+
+        <div class="cake3d" aria-hidden="true">
+          <div class="cake" id="cake"></div>
+          <div class="cake-board"></div>
+        </div>
+
+        <!-- Cotes façon plan technique -->
+        <div class="cote cote-h" aria-hidden="true"><span>Ø 20 cm</span></div>
+        <div class="cote cote-v" aria-hidden="true"><span>H 16 cm</span></div>
+        <figcaption><span id="fig-name">Fig. 1 — Framboise · Pistache</span><span class="hint">↔ fais-le tourner</span></figcaption>
+      </figure>
+
+      <div class="flavors" role="radiogroup" aria-label="Choisir une saveur">
+        <button role="radio" aria-checked="true" data-flavor="framboise" data-label="Framboise · Pistache"><i></i>Framboise</button>
+        <button role="radio" aria-checked="false" data-flavor="chocolat" data-label="Chocolat · Caramel"><i></i>Chocolat</button>
+        <button role="radio" aria-checked="false" data-flavor="myrtille" data-label="Myrtille · Citron"><i></i>Myrtille</button>
+      </div>
+    </section>
+
+    <!-- ÉTAGE 02 — La coupe (scroll = coup de couteau) -->
+    <section class="cut" id="coupe" data-floor="02" data-floor-name="La coupe">
+      <div class="cut-sticky">
+        <p class="tag">Coupe A-A' — ce qu'on ne voit jamais</p>
+        <h2>Ce qu'il y a <em>dedans</em>.</h2>
+        <div class="cut-stage">
+          <div class="cut-cake" id="cut-cake">
+            <div class="cut-inside" id="cut-inside"></div>
+            <div class="cut-outside" id="cut-outside"></div>
+            <div class="knife" id="knife"></div>
+          </div>
+          <svg class="cut-lines" id="cut-lines" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true"></svg>
+          <ol class="cut-labels" id="cut-labels"></ol>
+        </div>
+        <p class="scroll-hint" id="cut-hint">Continue de descendre pour couper ↓</p>
+      </div>
+    </section>
+
+    <!-- ÉTAGE 03 — Configurateur d'invités -->
+    <section class="config" id="invites" data-floor="03" data-floor-name="Les invités">
+      <p class="tag">Calcul de structure</p>
+      <h2>Combien d'<em>invités</em> ?</h2>
+
+      <div class="config-cake" id="config-cake" aria-hidden="true"></div>
+
+      <output class="config-guests" for="guests"><b id="guests-out">40</b> invités</output>
+      <input type="range" id="guests" min="15" max="200" step="1" value="40" aria-label="Nombre d'invités">
+      <div class="range-scale" aria-hidden="true"><span>15</span><span>100</span><span>200</span></div>
+
+      <dl class="specs">
+        <div><dt>Étages</dt><dd id="spec-tiers">2</dd></div>
+        <div><dt>Diamètres</dt><dd id="spec-diam">Ø25 + Ø15</dd></div>
+        <div><dt>Hauteur</dt><dd id="spec-height">≈ 32 cm</dd></div>
+        <div><dt>Parts</dt><dd id="spec-parts">55</dd></div>
+      </dl>
+      <p class="note">Estimation indicative. Chaque gâteau est dessiné sur mesure.</p>
+      <a class="btn" href="#devis" id="config-cta">Demander un devis pour <span id="cta-guests">40</span> pers.</a>
+    </section>
+
+    <!-- ÉTAGE 04 — Réalisations -->
+    <section class="archives" id="realisations" data-floor="04" data-floor-name="Les archives">
+      <p class="tag">Archives — projets livrés</p>
+      <h2>Déjà <em>construits</em>.</h2>
+      <div class="cards" tabindex="0" aria-label="Réalisations, faire défiler horizontalement">
+        <article class="card" style="--c1:#F2A7B8;--c2:#C5CF8E">
+          <div class="card-img"><span>Photo à venir</span></div>
+          <p class="card-ref">N°024 · Mariage</p>
+          <h3>Pièce montée pistache</h3>
+          <p class="card-meta">120 pers. · 4 étages</p>
+        </article>
+        <article class="card" style="--c1:#3A2016;--c2:#C98A3D">
+          <div class="card-img"><span>Photo à venir</span></div>
+          <p class="card-ref">N°019 · 30 ans</p>
+          <h3>Drip chocolat-caramel</h3>
+          <p class="card-meta">45 pers. · 2 étages</p>
+        </article>
+        <article class="card" style="--c1:#E8E1F5;--c2:#6B5BA8">
+          <div class="card-img"><span>Photo à venir</span></div>
+          <p class="card-ref">N°017 · Baptême</p>
+          <h3>Myrtille & citron</h3>
+          <p class="card-meta">30 pers. · 1 étage</p>
+        </article>
+        <article class="card" style="--c1:#FBF3E4;--c2:#D9415F">
+          <div class="card-img"><span>Photo à venir</span></div>
+          <p class="card-ref">N°012 · Entreprise</p>
+          <h3>Layer cake signature</h3>
+          <p class="card-meta">80 pers. · 3 étages</p>
+        </article>
+      </div>
+
+      <ol class="process">
+        <li><b>01</b><span><strong>Le brief</strong>Date, lieu, invités, envies.</span></li>
+        <li><b>02</b><span><strong>Le croquis</strong>Saveurs, couleurs, structure.</span></li>
+        <li><b>03</b><span><strong>La construction</strong>Couche par couche, à la main.</span></li>
+        <li><b>04</b><span><strong>La livraison</strong>Montage sur place si besoin.</span></li>
+      </ol>
+    </section>
+
+    <!-- ÉTAGE 05 — Bon de commande -->
+    <section class="order" id="devis" data-floor="05" data-floor-name="La commande">
+      <p class="tag">Bon de commande · réponse sous 48 h</p>
+      <h2>On <em>construit</em> le vôtre ?</h2>
+
+      <form class="form" id="order-form" novalidate>
+        <fieldset>
+          <legend>L'événement</legend>
+          <div class="chips" data-name="event">
+            <label><input type="radio" name="event" value="Mariage" checked><span>Mariage</span></label>
+            <label><input type="radio" name="event" value="Anniversaire"><span>Anniversaire</span></label>
+            <label><input type="radio" name="event" value="Baptême"><span>Baptême</span></label>
+            <label><input type="radio" name="event" value="Entreprise"><span>Entreprise</span></label>
+            <label><input type="radio" name="event" value="Autre"><span>Autre</span></label>
+          </div>
+        </fieldset>
+
+        <div class="row">
+          <label class="field"><span>Date</span><input type="date" name="date" required></label>
+          <label class="field"><span>Invités</span><input type="number" name="guests" id="form-guests" min="15" max="500" value="40" inputmode="numeric" required></label>
+        </div>
+
+        <fieldset>
+          <legend>Saveurs envisagées</legend>
+          <div class="chips">
+            <label><input type="checkbox" name="flavors" value="Framboise · Pistache"><span>Framboise · Pistache</span></label>
+            <label><input type="checkbox" name="flavors" value="Chocolat · Caramel"><span>Chocolat · Caramel</span></label>
+            <label><input type="checkbox" name="flavors" value="Myrtille · Citron"><span>Myrtille · Citron</span></label>
+            <label><input type="checkbox" name="flavors" value="À inventer ensemble"><span>À inventer ensemble</span></label>
+          </div>
+        </fieldset>
+
+        <label class="field"><span>Lieu (ville)</span><input type="text" name="place" autocomplete="address-level2"></label>
+        <label class="field"><span>Votre nom</span><input type="text" name="name" autocomplete="name" required></label>
+        <label class="field"><span>Vos envies</span><textarea name="message" rows="3" placeholder="Couleurs, thème, allergies…"></textarea></label>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <div class="form-actions">
+          <button type="submit" class="btn" data-channel="whatsapp">Envoyer sur WhatsApp</button>
+          <button type="submit" class="btn btn-ghost" data-channel="email">Envoyer par e-mail</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="logo">Cake<span>·</span>ma</p>
+    <p>Layer cakes sur mesure · à partir de 15 personnes</p>
+    <p><a href="https://instagram.com/" rel="noopener">Instagram</a></p>
+  </footer>
+
+  <!-- CTA collant en bas d'écran, dans la zone du pouce -->
+  <a class="sticky-cta" id="sticky-cta" href="#devis">Demander un devis <span aria-hidden="true">→</span></a>
+
+  <script src="main.js"></script>
+</body>
+</html>
